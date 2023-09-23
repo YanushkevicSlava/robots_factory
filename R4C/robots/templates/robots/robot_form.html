@@ -1,0 +1,21 @@
+{% extends 'robots/base.html' %}
+
+{% block title %}
+    Add robot
+{% endblock %}
+
+{% block body %}
+    <h1>Add robot</h1>
+    <div>
+        <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">
+            Add
+        </button>
+        </form>
+    </div>
+
+{% endblock %}
