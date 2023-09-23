@@ -1,6 +1,5 @@
 from django.db import models
-
-from R4C.customers.models import Customer
+from customers.models import Customer
 
 
 class Order(models.Model):
