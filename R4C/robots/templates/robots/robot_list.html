@@ -1,0 +1,25 @@
+{% extends "robots/base.html" %}
+
+
+{% block titlt %}
+ Robots list
+{% endblock %}
+
+{% block body %}
+    <h1>Robots:</h1>
+        <div>
+            {% for robot in object_list %}
+            <div>
+                <p>Serial: {{ robot.serial }}</p>
+                <p>Model: {{ robot.model }}</p>
+                <p>Version: {{ robot.version }}</p>
+                <p>Created: {{ robot.created }}</p>
+            </div>
+            <div>
+                <p>_____________________________</p>
+            </div>
+            {% endfor %}
+        </div>
+
+
+{% endblock %}

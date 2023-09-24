@@ -1,0 +1,21 @@
+{% extends "robots/base.html" %}
+
+
+{% block titlt %}
+ Orders list
+{% endblock %}
+
+{% block body %}
+    <h1>Orders:</h1>
+        <div>
+            {% for order in object_list %}
+            <div>
+                <p>Customer: {{ order.customer.email }}</p>
+                <p>robot_serial: {{ order.robot_serial }}</p>
+
+            </div>
+            {% endfor %}
+        </div>
+
+
+{% endblock %}
