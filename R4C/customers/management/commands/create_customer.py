@@ -3,7 +3,9 @@ from customers.models import Customer
 
 
 class Command(BaseCommand):
-
+    """
+    Класс добавления нового пользователя используя BaseCommand.
+    """
     def handle(self, *args, **options):
         self.stdout.write("Create customer")
 
