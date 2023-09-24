@@ -1,4 +1,3 @@
-import datetime
 import io
 from django.db.models import Count
 from .models import Robot
@@ -13,8 +12,7 @@ def create_data_to_excel():
     """
 
     # Получаем время неделю назад
-    time_one_week_ago = timezone.now().date() - timedelta(days=7)
-    time_one_week_ago = time_one_week_ago.strftime('%Y-%m-%d %H:%M:%S')
+    time_week_ago = timezone.now() - timedelta(days=7)
 
     # Инициализируем объекты Workbook и BytesIO
     output = io.BytesIO()
@@ -26,8 +24,9 @@ def create_data_to_excel():
     for model in models_list:
         ws = wb.create_sheet(model)
         ws.append(['Модель', 'Версия', 'Количество за неделю'])
-        queryset = Robot.objects.filter(model=model).exclude(created__gt=time_one_week_ago).values(
-            'version').annotate(total=Count('version'))
+        queryset = Robot.objects.filter(model=model, created__gt=time_week_ago).values(
+            'version').annotate(
+            total=Count('version'))
         # Записываем полученную информацию в файл Excel
         for item in queryset:
             ws.append([model, item['version'], item['total']])
