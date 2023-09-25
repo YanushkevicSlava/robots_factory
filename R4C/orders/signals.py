@@ -21,4 +21,3 @@ def check_new_robot_in_orders(sender, instance, created, **kwargs):
             order = orders[0]
             customer = order.customer
             send_email(customer=customer, robot=instance)
-            
