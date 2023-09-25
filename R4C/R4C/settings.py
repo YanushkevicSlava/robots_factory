@@ -127,3 +127,13 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Настройки для отправки писем с помощью gmail.com
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+# Ваша почта
+EMAIL_HOST_USER = "your@gmail.com"
+# Сгенерированный пароль приложения
+EMAIL_HOST_PASSWORD = "password"
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
